@@ -1,0 +1,29 @@
+# Lighthaus Color theme for Zathura
+# GIT: https://github.com/lighthaus-theme/zathura
+# Author: Adhiraj Sirohi (https://github.com/brutuski)
+#         Vasundhara Sharma (https://github.com/vasundhasauras)
+# Copyright © 2020-Present Lighthaus Theme
+# Copyright © 2020-Present Adhiraj Sirohi
+# Copyright © 2020-Present Vasundhara Sharma
+set recolor false
+include catppuccin
+#######################################################################3
+# copy selection to system clipboard
+set selection-clipboard clipboard
+# enable incremental search
+# enable incremental search
+set incremental-search true
+# zoom
+map <C-i> zoom in
+map <C-o> zoom out
+set guioptions ""
+##################################G
+set scroll-page-aware "true"
+set zoom-step 40
+set scroll-step 80
+set smooth-scroll "true"
+#set render-loading "false"
+##################################G
+unmap f
+map f toggle_fullscreen
+map [fullscreen] f toggle_fullscreen
