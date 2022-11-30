@@ -22,20 +22,20 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const int horizpadbar        = 9;
 static const int vertpadbar         = 9;
 static const int vertpadtab         = 30;
-static const int horizpadtabi       = 10;
-static const int horizpadtabo       = 10;
-static const int scalepreview       = 6;
+static const int horizpadtabi       = 9;
+static const int horizpadtabo       = 9;
+static const int scalepreview       = 5;
 static const int tag_preview        = 0;        /* 1 means enable, 0 is off */
 static const int colorfultag        = 1;        /* 0 means use SchemeSel for selected non vacant tag */
 
 #define ICONSIZE 19   /* icon size */
-#define ICONSPACING 8 /* space between icon and title */
+#define ICONSPACING 9 /* space between icon and title */
 
 static const char *fonts[]          = {"JetBrainsMono Nerd Font:style:medium:size=13" ,"JetBrainsMono Nerd Font:style:medium:size=12",
                                         "JetBrainsMono Nerd Font:size=11" };
 
 // theme
-#include "themes/gruvchad.h"
+#include "themes/onedark.h"
 
 static const char *colors[][3]      = {
     /*                     fg       bg      border */
@@ -57,21 +57,21 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static char *tags[] = {"1", "2", "3"};
+static char *tags[] = {"1", "2"};
 
 static const char* eww[] = { "eww", "open" , "eww", NULL };
 
 static const Launcher launchers[] = {
     /* command     name to display */
-    { eww,         "C" },
+    { eww,         "גּ" },
 };
 
 static const int tagschemes[] = {
     SchemeTag1, SchemeTag2, SchemeTag3, SchemeTag4, SchemeTag5
 };
 
-static const unsigned int ulinepad      = 1; /* horizontal padding between the underline and tag */
-static const unsigned int ulinestroke   = 1; /* thickness / height of the underline */
+static const unsigned int ulinepad      = 4; /* horizontal padding between the underline and tag */
+static const unsigned int ulinestroke   = 2; /* thickness / height of the underline */
 static const unsigned int ulinevoffset  = 0; /* how far above the bottom of the bar the line should appear */
 static const int ulineall               = 0; /* 1 to show underline on all tags, 0 for just the active ones */
 
@@ -132,11 +132,11 @@ static Key keys[] = {
     /* modifier                         key         function        argument */
 
     // brightness and audio 
-    {0,                     XF86XK_AudioMute,       spawn,          SHCMD("pamixer -t")},
+    {0,                     XF86XK_AudioMute,       spawn,          SHCMD("amixer -q sset Master toggle")},
     {0,              XF86XK_AudioRaiseVolume,       spawn,          SHCMD("pamixer -i 5")},
     {0,              XF86XK_AudioLowerVolume,       spawn,          SHCMD("pamixer -d 5")},
-    {0,              XF86XK_MonBrightnessDown,      spawn,          SHCMD("xbacklight -dec 5")},
-    {0,              XF86XK_MonBrightnessUp,        spawn,          SHCMD("xbacklight -inc 5")},
+    {0,              XF86XK_MonBrightnessDown,      spawn,          SHCMD("xrandr --output eDP-1 --brightness .5")},
+    {0,              XF86XK_MonBrightnessUp,        spawn,          SHCMD("xrandr --output eDP-1 --brightness .8")},
 
     // screenshot fullscreen and cropped
     {MODKEY|ControlMask,                XK_u,       spawn,
