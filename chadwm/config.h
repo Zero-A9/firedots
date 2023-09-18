@@ -24,8 +24,8 @@ static const int vertpadbar         = 9;
 static const int vertpadtab         = 30;
 static const int horizpadtabi       = 9;
 static const int horizpadtabo       = 9;
-static const int scalepreview       = 5;
-static const int tag_preview        = 0;        /* 1 means enable, 0 is off */
+static const int scalepreview       = 4;
+static const int tag_preview        = 1;        /* 1 means enable, 0 is off */
 static const int colorfultag        = 1;        /* 0 means use SchemeSel for selected non vacant tag */
 
 #define ICONSIZE 19   /* icon size */
@@ -57,7 +57,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static char *tags[] = {"1", "2"};
+static char *tags[] = {"1", "2", "3", "4"};
 
 static const char* eww[] = { "eww", "open" , "eww", NULL };
 
@@ -81,9 +81,7 @@ static const Rule rules[] = {
      *	WM_NAME(STRING) = title
      */
     /* class      instance    title       tags mask     iscentered   isfloating   monitor */
-    { "Gimp",     NULL,       NULL,       0,            0,           1,           -1 },
-    { "Firefox",  NULL,       NULL,       1 << 8,       0,           0,           -1 },
-    { "eww",      NULL,       NULL,       0,            0,           1,           -1 },
+    { NULL,  NULL,       NULL,       0,       0,           0,           -1 },
 };
 
 /* layout(s) */
@@ -135,8 +133,8 @@ static Key keys[] = {
     {0,                     XF86XK_AudioMute,       spawn,          SHCMD("amixer -q sset Master toggle")},
     {0,              XF86XK_AudioRaiseVolume,       spawn,          SHCMD("pamixer -i 5")},
     {0,              XF86XK_AudioLowerVolume,       spawn,          SHCMD("pamixer -d 5")},
-    {0,              XF86XK_MonBrightnessDown,      spawn,          SHCMD("xrandr --output eDP-1 --brightness .5")},
-    {0,              XF86XK_MonBrightnessUp,        spawn,          SHCMD("xrandr --output eDP-1 --brightness .8")},
+    {0,              XF86XK_MonBrightnessDown,      spawn,          SHCMD("light -U 5")},
+    {0,              XF86XK_MonBrightnessUp,        spawn,          SHCMD("light -A 5")},
 
     // screenshot fullscreen and cropped
     {MODKEY|ControlMask,                XK_u,       spawn,
@@ -145,7 +143,7 @@ static Key keys[] = {
         SHCMD("maim --select | xclip -selection clipboard -t image/png")},
 
     { MODKEY,                           XK_c,       spawn,          SHCMD("rofi -show drun") },
-    { MODKEY,                           XK_Return,  spawn,            SHCMD("kitty")},
+    { MODKEY,                           XK_Return,  spawn,            SHCMD("alacritty")},
 
     // toggle stuff
     { MODKEY,                           XK_b,       togglebar,      {0} },
@@ -248,7 +246,7 @@ static Button buttons[] = {
     { ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
     { ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
     { ClkWinTitle,          0,              Button2,        zoom,           {0} },
-    { ClkStatusText,        0,              Button2,        spawn,          SHCMD("st") },
+    { ClkStatusText,        0,              Button2,        spawn,          SHCMD("alacritty") },
 
     /* Keep movemouse? */
     /* { ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} }, */
