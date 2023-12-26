@@ -1,6 +1,5 @@
 #!/bin/dash
 
-
 # ^c$var^ = fg color
 # ^b$var^ = bg color
 
@@ -19,14 +18,16 @@ cpu() {
 
 battery() {
 	get_capacity="$(cat /sys/class/power_supply/BAT0/capacity)"
-	printf "^c$red^^b$black^   $get_capacity "
+	#printf "^c$red^^b$black^ B>> $get_capacity "
+	printf "^c$black^ ^b$red^ BATT"
+	printf "^c$white^ ^b$grey^ $get_capacity"
 }
 
 
-mem() {
-	printf "^c$blue^^b$black^ R:"
-	printf "^c$blue^ $(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g)"
-}
+#mem() {
+#	printf "^c$blue^^b$black^R>>"
+#	printf "^c$blue^ $(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g)"
+#
 
 wlan() {
 	case "$(cat /sys/class/net/w*/operstate 2>/dev/null)" in
@@ -45,6 +46,6 @@ while true; do
 	[ $interval = 0 ] || [ $(($interval % 3600)) = 0 ]
 	interval=$((interval + 1))
 
-    sleep 1 && xsetroot -name "$(battery) $(mem) $(cpu) $(wlan) $(clock)"
+    sleep 1 && xsetroot -name "$(cpu) $(battery) $(wlan) $(clock)"
 done
 
