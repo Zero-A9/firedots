@@ -9,7 +9,7 @@
 bar.sh &
 sxhkd &
 picom &
-xrandr --output eDP-1 --brightness .8 &
+# xrandr --output eDP-1 --brightness .8 &
 xset r rate 250 60 &
 setxkbmap -option "caps:escape" &
 bash ~/.config/conky/Shelyak/start.sh
