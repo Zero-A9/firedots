@@ -6,18 +6,16 @@
 #
 ## add your autostart stuffs here
 #xset r rate 200 40 &
-bar.sh &
+bar &
 sxhkd &
 picom &
-# xrandr --output eDP-1 --brightness .8 &
+#xrandr --output eDP-1 --brightness .8 &
+nitrogen --set-zoom-fill --random /home/ahmed/Pictures/Wallpaper --save &
 xset r rate 250 60 &
 setxkbmap -option "caps:escape" &
-bash ~/.config/conky/Shelyak/start.sh
-nitrogen --set-zoom-fill --random ~/Wallpaper/onedark/2022-12-04_13-16.png --save
-
-
+change_mac.sh &
+#bash ~/.config/conky/Shelyak/start.sh
 while type dwm >/dev/null; do dwm && continue || break; done
-#nitrogen --set-zoom-fill --random ~/Wallpaper/landscape --save &
 #dashboard &
 #status_bar &
 # run bar script and dwm ( do not remove this ) 

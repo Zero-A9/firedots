@@ -7,7 +7,7 @@ ZSH_THEME="aditya"
 source $ZSH/oh-my-zsh.sh
 plugins=(git)
 #ZSH_THEME="arrow"
-export TERMINAL="kitty"
+export TERMINAL="alacrity"
 export EDITOR="lvim" 
 source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.oh-my-zsh/custom/plugins/auto-notify/auto-notify.plugin.zsh
@@ -46,6 +46,8 @@ alias vv="__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia"
 alias g="cd Test/Github_Repo"
 alias sl="curl -s https://timesprayer.com/ | grep countdown | sed 's/[^0-9:]*//g'"
 alias ha="cd Downloads/Hack_Tools"
+alias rt="sys restart tor@default.service"
+alias rtt="sys status tor@default.service"
 #------------------------------------------
 
 # export WM_PROJECT_DIR=/usr/share/openfoam
@@ -59,4 +61,4 @@ alias ha="cd Downloads/Hack_Tools"
 #alias archfs='sftp -i ~/.ssh/id_rsa.DEVICE UNAME@IP'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-eval "$(atuin init zsh)"
+
